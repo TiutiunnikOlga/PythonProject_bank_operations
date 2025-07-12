@@ -4,6 +4,7 @@ from services import filter_person_transfers
 import pandas as pd
 
 
+
 def main():
     # Программа здоровается исходя из времени суток
     current_hour = current_date_time.hour
@@ -28,12 +29,11 @@ def main():
             print("Топ-5 транзакций:", get_top_transactions(df))
             print("Курс валют EUR/RUB", get_exchange_rate("EUR", "RUB", 1))
             print("Курс валют USD/RUB", get_exchange_rate("USD", "RUB", 1))
+            print(filter_person_transfers(df))
         else:
             print("Не удалось получить данные")
     except Exception as e:
         print(f"Произошла ошибка: {e}")
-
-    print(filter_person_transfers(sorted_df_by_date(df)))
 
 
 if __name__ == "__main__":

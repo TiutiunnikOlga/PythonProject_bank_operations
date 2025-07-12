@@ -6,27 +6,26 @@ import os
 current_date_time = datetime.datetime.now()
 
 
-def sorted_df_by_date(file_path):
+def sorted_df_by_date(df):
+    sorted_df = []
     try:
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Файл не найден: {file_path}")
+        if not os.path.exists(df):
+            raise FileNotFoundError(f"Файл не найден: {df}")
 
         # Читаем файл Excel
-        df = pd.read_excel(file_path, engine="openpyxl")
+        df = pd.read_excel(df, engine="openpyxl")
 
-        # Предполагаем, что столбец с датой называется 'Date'
-        # Если это не так, измените 'Date' на реальное название столбца
-        if "Date" in df.columns:
+        if "Дата операции" in df.columns:
             # Проверяем формат даты в столбце
             try:
-                df["Date"] = pd.to_datetime(df["Date"])
-                df = df.sort_values(by="Date")
+                df["Дата операции"] = pd.to_datetime(df["Дата операции"])
+                df = df.sort_values(by="Дата операции")
             except ValueError:
                 # Пытаемся определить формат даты автоматически
-                df["Date"] = pd.to_datetime(df["Date"], infer_datetime_format=True)
-                df = df.sort_values(by="Date")
+                df["Дата операции"] = pd.to_datetime(df["Дата операции"], infer_datetime_format=True)
+            sorted_df = df.sort_values(by="Дата операции")
 
-        return df
+        return sorted_df
     except FileNotFoundError as e:
         print(f"Ошибка: {e}")
         return None
