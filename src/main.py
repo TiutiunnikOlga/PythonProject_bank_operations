@@ -18,7 +18,11 @@ def main():
 
     try:
         # Читаем и обрабатываем данные
+<<<<<<< Updated upstream
         df = sorted_df_by_date(r"C:\Users\Olga\PycharmProjects\PythonProject-\data\operations.xlsx")
+=======
+        df = sorted_df_by_date(r"C:\Users\Olga\PycharmProjects\PythonProject_bank_operations\data\operations.xlsx")
+>>>>>>> Stashed changes
         if df is not None:
             print("Уникальные номера карт:", number_card(df))
             print("Общая сумма операций:", sum_operations(df))
