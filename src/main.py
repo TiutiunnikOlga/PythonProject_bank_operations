@@ -1,8 +1,5 @@
 from views import current_date_time, cashback, sum_operations, number_card, sorted_df_by_date, get_top_transactions
 from utils import get_exchange_rate
-from services import filter_person_transfers
-import pandas as pd
-
 
 
 def main():
@@ -21,7 +18,7 @@ def main():
 
     try:
         # Читаем и обрабатываем данные
-        df = sorted_df_by_date(r"C:\Users\Olga\PycharmProjects\PythonProject\data\operations.xlsx")
+        df = sorted_df_by_date(r"C:\Users\Olga\PycharmProjects\PythonProject-\data\operations.xlsx")
         if df is not None:
             print("Уникальные номера карт:", number_card(df))
             print("Общая сумма операций:", sum_operations(df))
@@ -29,7 +26,6 @@ def main():
             print("Топ-5 транзакций:", get_top_transactions(df))
             print("Курс валют EUR/RUB", get_exchange_rate("EUR", "RUB", 1))
             print("Курс валют USD/RUB", get_exchange_rate("USD", "RUB", 1))
-            print(filter_person_transfers(df))
         else:
             print("Не удалось получить данные")
     except Exception as e:

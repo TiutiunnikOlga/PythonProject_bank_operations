@@ -1159,6 +1159,18 @@ files = [
 ]
 
 [[package]]
+name = "xlsxwriter"
+version = "3.2.5"
+description = "A Python module for creating Excel XLSX files."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "xlsxwriter-3.2.5-py3-none-any.whl", hash = "sha256:4f4824234e1eaf9d95df9a8fe974585ff91d0f5e3d3f12ace5b71e443c1c6abd"},
+    {file = "xlsxwriter-3.2.5.tar.gz", hash = "sha256:7e88469d607cdc920151c0ab3ce9cf1a83992d4b7bc730c5ffdd1a12115a7dbe"},
+]
+
+[[package]]
 name = "yfinance"
 version = "0.2.64"
 description = "Download market data from Yahoo! Finance API"
@@ -1191,4 +1203,4 @@ repair = ["scipy (>=1.6.3)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "eaf2218c68fb9f989813d6689ae4d7a13d4e4864f68abeaaf8f49ad8f9d971e3"
+content-hash = "5aeba48c0862d5dc6f1513a373b54c53b55371d8db878230841799f785115807"
