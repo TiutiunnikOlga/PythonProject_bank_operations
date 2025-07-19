@@ -1,7 +1,7 @@
 from utils import get_exchange_rate
-from views import (cashback, current_date_time, get_sp500_prices, get_top_transactions, number_card, sorted_df_by_date,
-                   sum_operations)
-
+from views import cashback, current_date_time, get_sp500_prices, get_top_transactions, number_card, sorted_df_by_date,
+                   sum_operations
+  
 
 def main():
     # Программа здоровается исходя из времени суток
@@ -20,6 +20,7 @@ def main():
     try:
         # Читаем и обрабатываем данные
         df = sorted_df_by_date(r"C:\Users\Olga\PycharmProjects\PythonProject\data\operations.xlsx")
+
         if df is not None:
             print("Уникальные номера карт:", number_card(df))
             print("Общая сумма операций:", sum_operations(df))
@@ -28,6 +29,7 @@ def main():
             print("Курс валют EUR/RUB", get_exchange_rate("EUR", "RUB", 1))
             print("Курс валют USD/RUB", get_exchange_rate("USD", "RUB", 1))
             print("Стоимость акций из S&P500", get_sp500_prices())
+
         else:
             print("Не удалось получить данные")
     except Exception as e:
